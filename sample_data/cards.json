@@ -4,6 +4,7 @@
       "description": "my word description",
       "firebaseKey": "-N3jxFJMrZBoPZBFdCGE",
       "title": "my first word",
+      "time":"",
       "uid": "11128787908"
   },
   "-N3jysKteDnsb5sUt6FM": {
@@ -11,6 +12,7 @@
       "description": "my word description",
       "firebaseKey": "-N3jysKteDnsb5sUt6FM",
       "title": "my second word",
+      "time":"",
       "uid": ""
   }
 }
