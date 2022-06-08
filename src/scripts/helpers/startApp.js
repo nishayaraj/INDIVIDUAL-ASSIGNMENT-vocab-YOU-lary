@@ -11,10 +11,10 @@ const startApp = (user) => {
   console.warn(user.uid);
 
   domBuilder(); // BUILD THE DOM
-  domEvents(user.uid); // ADD THE EVENT LISTENTERS TO THE DOM
-  formEvents(user.uid); // ADD FORM EVENT LISTENTERS TO THE DOM
   navBar(); // DYNAMICALLY ADD THE NAV
   logoutButton();
+  domEvents(user.uid); // ADD THE EVENT LISTENTERS TO THE DOM
+  formEvents(user.uid); // ADD FORM EVENT LISTENTERS TO THE DOM
   navigationEvents(user.uid); // ATTACH THE EVENT LISTENERS TO THE NAVBAR
 
   // TODO: Put all books on the DOM on App load

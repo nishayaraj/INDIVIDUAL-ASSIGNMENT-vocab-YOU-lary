@@ -30,7 +30,7 @@ const createCard = (cardObj) => new Promise((resolve, reject) => {
 
 // FIXME: GET SINGLE Card
 const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/authors/${firebaseKey}.json`)
+  axios.get(`${dbUrl}/vocabulary/${firebaseKey}.json`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
@@ -39,19 +39,18 @@ const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
 const deleteCard = (firebaseKey, uid) => new Promise((resolve, reject) => {
   axios.delete(`${dbUrl}/vocabulary/${firebaseKey}.json`)
     .then(() => {
-      getCards(uid).then((cardsArray) => resolve(cardsArray));
+      getCards(uid)
+        .then((cardsArray) => resolve(cardsArray));
     })
     .catch((error) => reject(error));
 });
 
 // FIXME: UPDATE card
 const updateCard = (cardObj) => new Promise((resolve, reject) => {
-  console.warn(cardObj);
-  axios.patch(`${dbUrl}/vocabulary/${cardObj.firebaseKey}.json`, cardObj)
-    .then(() => getCards().then((data) => {
-      console.warn(data);
-      resolve(data);
-    }))
+  axios
+    .patch(`${dbUrl}/vocabulary/${cardObj.firebaseKey}.json`, cardObj)
+    .then(() => getCards(cardObj.uid)
+      .then((data) => resolve(data)))
     .catch((error) => reject(error));
 });
 

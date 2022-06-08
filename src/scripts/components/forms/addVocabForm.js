@@ -1,22 +1,34 @@
 import clearDom from '../../helpers/clearDom';
 import renderToDOM from '../../helpers/renderToDom';
 
+/**
+ *
+ {
+        "category": "tech",
+        "description": "my word description",
+        "firebaseKey": "-N3jxFJMrZBoPZBFdCGE",
+        "time": "",
+        "title": "my first word",
+        "uid": "sGJkiouC75hVOXNaxnPOu5qmU0c2"
+    }
+ */
+
 // USING THIS FORM FOR BOTH CREATE AND UPDATE
 const addVocabForm = (obj = {}) => {
   clearDom();
   const domString = `
     <form id="${obj.firebaseKey ? `update-card--${obj.firebaseKey}` : 'submit-card'}" class="mb-4">
       <div class="form-group">
-        <label for="title">Book Title</label>
-        <input type="text" class="form-control" id="title" aria-describedby="cardTitle" placeholder="Enter Card Title" value="${obj.title || ''}" required>
+        <label for="title">Enter your word</label>
+        <input type="text" class="form-control" id="wordTitle" aria-describedby="cardTitle" placeholder="My new word is" value="${obj.title || ''}" required>
       </div>
       <div class="form-group">
-        <label for="description">Description</label>
-        <textarea class="form-control" placeholder="Enter a Definition" id="description" style="height: 100px">${obj.description || ''}</textarea>
+        <label for="description">Enter your word description</label>
+        <textarea class="form-control" placeholder="word means ..." id="wordDescription" style="height: 100px">${obj.description || ''}</textarea>
       </div>
       <div class="form-group">
-        <label for="description">Language/Tech</label>
-        <textarea class="form-control" placeholder="language/tech" id="tech" style="height: 100px">${obj.tech || ''}</textarea>
+        <label for="description">Enter word language/tech</label>
+        <textarea class="form-control" placeholder="language/tech" id="wordCategory" style="height: 100px">${obj.category || ''}</textarea>
       </div>
       <div class="form-group" id="select-card">
       </div>

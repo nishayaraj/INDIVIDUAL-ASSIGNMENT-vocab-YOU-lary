@@ -1,5 +1,6 @@
 import { showCards } from '../pages/showCards';
-import { deleteCard } from '../../../api/cardData';
+import { deleteCard, getSingleCard } from '../../../api/cardData';
+import addVocabForm from '../forms/addVocabForm';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
@@ -12,8 +13,11 @@ const domEvents = (uid) => {
       }
     }
 
-    // TODO: CLICK EVENT FOR SHOWING FORM FOR ADDING A BOOK
-    // TODO: CLICK EVENT EDITING/UPDATING A BOOK
+    // edits an existing card
+    if (e.target.id.includes('edit-card')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      getSingleCard(firebaseKey, uid).then((wordObj) => addVocabForm(wordObj));
+    }
   });
 };
 

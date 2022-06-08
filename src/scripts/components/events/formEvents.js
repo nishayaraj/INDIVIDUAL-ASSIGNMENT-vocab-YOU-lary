@@ -6,27 +6,29 @@ const formEvents = (uid) => {
     e.preventDefault();
     // TODO: CLICK EVENT FOR SUBMITTING FORM FOR ADDING A BOOK
     if (e.target.id.includes('submit-card')) {
-      const cardObject = {
-        title: document.querySelector('#title').value,
-        description: document.querySelector('#description').value,
-        tech: document.querySelector('#tech').value,
+      const wordObject = {
+        title: document.querySelector('#wordTitle').value,
+        description: document.querySelector('#wordDescription').value,
+        category: document.querySelector('#wordCategory').value,
         uid
       };
-      createCard(cardObject).then((booksArray) => showCards(booksArray));
+
+      createCard(wordObject).then((booksArray) => showCards(booksArray));
     }
 
     // TODO: CLICK EVENT FOR EDITING A BOOK
     if (e.target.id.includes('update-card')) {
       const [, firebaseKey] = e.target.id.split('--');
-      const cardObject = {
-        title: document.querySelector('#title').value,
-        description: document.querySelector('#description').value,
-        tech: document.querySelector('#tech').value,
-        firebaseKey,
-        uid
+
+      const wordObject = {
+        title: document.querySelector('#wordTitle').value,
+        description: document.querySelector('#wordDescription').value,
+        category: document.querySelector('#wordCategory').value,
+        uid,
+        firebaseKey
       };
 
-      updateCard(cardObject).then(showCards);
+      updateCard(wordObject).then(showCards);
     }
   });
 };
