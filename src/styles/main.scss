@@ -3,8 +3,8 @@
 
 
 body {
-  background-color: darkslategrey;
-  color: darkgoldenrod;
+  background-color: #116466;
+  color: black;
   text-align: center;
   margin-top: 100px;
 }
@@ -13,8 +13,14 @@ body {
   border: 2px solid saddlebrown;
   margin-bottom: 10px;
   display: flex;
+  background-color: #d1e8e2;
 }
 
 .btn btn-danger btn-sm {
 margin: 10px;
+}
+
+.mb-4 {
+ margin-left: 50px;
+ margin-right: 50px;
 }

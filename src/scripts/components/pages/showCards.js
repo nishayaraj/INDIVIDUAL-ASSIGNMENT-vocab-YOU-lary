@@ -16,7 +16,7 @@ const showCards = (cardsArray, filter) => {
     let domString = '';
     cardsArray.forEach((card) => {
       domString += `
-        <div class="card" style="width: 18rem; margin: 10px; border-radius: 16px; background-color:white;">
+        <div class="card" style="width: 18rem; margin: 10px; border-radius: 16px; background-color:#d1e8e2;">
           <div class="card-body">
             <h5 class="card-title">${card.title}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${card.category}</h6>

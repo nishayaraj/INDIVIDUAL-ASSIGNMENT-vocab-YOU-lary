@@ -19,20 +19,20 @@ const addVocabForm = (obj = {}) => {
   const domString = `
     <form id="${obj.firebaseKey ? `update-card--${obj.firebaseKey}` : 'submit-card'}" class="mb-4">
       <div class="form-group">
-        <label for="title">Enter your word</label>
-        <input type="text" class="form-control" id="wordTitle" aria-describedby="cardTitle" placeholder="My new word is" value="${obj.title || ''}" required>
+        <label for="title"><b>ENTER YOUR WORD</b></label>
+        <input type="text" class="form-control" id="wordTitle" aria-describedby="cardTitle" placeholder="My New Word is" value="${obj.title || ''}" required>
       </div>
       <div class="form-group">
-        <label for="description">Enter your word description</label>
-        <textarea class="form-control" placeholder="word means ..." id="wordDescription" style="height: 100px">${obj.description || ''}</textarea>
+        <label for="description"><b>ENTER WORD DESCRIPTION</b></label>
+        <textarea class="form-control" placeholder="Word Means ..." id="wordDescription" style="height: 100px">${obj.description || ''}</textarea>
       </div>
       <div class="form-group">
-        <label for="description">Enter word language/tech</label>
-        <textarea class="form-control" placeholder="language/tech" id="wordCategory" style="height: 100px">${obj.category || ''}</textarea>
+        <label for="description"><b>ENTER WORD LANGUAGE/TECH</b></label>
+        <textarea class="form-control" placeholder="Language/Tech" id="wordCategory" style="height: 100px">${obj.category || ''}</textarea>
       </div>
       <div class="form-group" id="select-card">
       </div>
-      <button type="submit" class="btn btn-primary">Submit Card
+      <button type="submit" class= class="btn btn-outline-dark">Submit Card
       </button>
     </form>`;
 

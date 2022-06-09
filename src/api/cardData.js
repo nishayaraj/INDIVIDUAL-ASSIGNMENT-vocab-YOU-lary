@@ -60,14 +60,6 @@ const updateCard = (cardObj) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// const javaScript = (uid) => new Promise((resolve, reject) => {
-//   getCards(uid)
-//     .then((cardLanguage) => {
-//       const jsCards = cardLanguage.filter((card) => card.category === '');
-//       resolve(jsCards);
-//     }).catch((error) => reject(error));
-// });
-
 export {
   getCards,
   createCard,

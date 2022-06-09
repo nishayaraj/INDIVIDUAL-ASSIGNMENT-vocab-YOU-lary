@@ -6,7 +6,7 @@ const showFilterButtons = (filterCategory) => {
   let filterButtonsDom = spacer;
 
   filterCategory.forEach((category) => {
-    filterButtonsDom += `<button type="button" class="btn btn-dark btn-sm" id='filter-btns-${category}'>${category}</button>${spacer}`;
+    filterButtonsDom += `<button type="button" class="btn btn-dark" id='filter-btns-${category}'>${category}</button>${spacer}`;
   });
 
   renderToDOM('#filter-btns', filterButtonsDom);
