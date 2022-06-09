@@ -3,8 +3,18 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: darkslategrey;
+  color: darkgoldenrod;
   text-align: center;
   margin-top: 100px;
+}
+
+.card {
+  border: 2px solid saddlebrown;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.btn btn-danger btn-sm {
+margin: 10px;
 }

@@ -1,14 +1,20 @@
+/* eslint-disable no-console */
 import axios from 'axios';
 import firebaseConfig from './apiKeys';
 
 const dbUrl = firebaseConfig.databaseURL;
 
 // FIXME:  GET ALL CARDS
-const getCards = (uid) => new Promise((resolve, reject) => {
+const getCards = (uid, category) => new Promise((resolve, reject) => {
   axios.get(`${dbUrl}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       if (response.data) {
-        resolve(Object.values(response.data));
+        const cards = Object.values(response.data);
+        if (category) {
+          resolve(cards.filter((card) => (card.category.toLowerCase() === category.toLowerCase())));
+        }
+
+        resolve(cards);
       } else {
         resolve([]);
       }
@@ -53,6 +59,14 @@ const updateCard = (cardObj) => new Promise((resolve, reject) => {
       .then((data) => resolve(data)))
     .catch((error) => reject(error));
 });
+
+// const javaScript = (uid) => new Promise((resolve, reject) => {
+//   getCards(uid)
+//     .then((cardLanguage) => {
+//       const jsCards = cardLanguage.filter((card) => card.category === '');
+//       resolve(jsCards);
+//     }).catch((error) => reject(error));
+// });
 
 export {
   getCards,
