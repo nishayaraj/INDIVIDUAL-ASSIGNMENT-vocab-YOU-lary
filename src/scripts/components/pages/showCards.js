@@ -22,6 +22,7 @@ const showCards = (cardsArray, filter) => {
             <h6 class="card-subtitle mb-2 text-muted">${card.category}</h6>
             <p class="card-text">${card.description}</p>
             <hr> 
+            <i class="btn btn-success fas fa-eye" id="view-card-btn--${card.firebaseKey}"></i>
             <i id="edit-card-btn--${card.firebaseKey}" class="fas fa-edit btn btn-info"></i>
             <i id="delete-card-btn--${card.firebaseKey}" class="btn btn-danger fas fa-trash-alt"></i>
           </div>

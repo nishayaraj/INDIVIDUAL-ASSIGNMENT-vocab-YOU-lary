@@ -4,13 +4,19 @@ import addVocabForm from '../forms/addVocabForm';
 
 const domEvents = (uid) => {
   document.querySelector('#main-container').addEventListener('click', (e) => {
-    // TODO: CLICK EVENT FOR DELETING A BOOK
+    // TODO: CLICK EVENT FOR DELETING A CARD
     if (e.target.id.includes('delete-card')) {
       // eslint-disable-next-line no-alert
       if (window.confirm('Want to delete?')) {
         const [, firebaseKey] = e.target.id.split('--');
         deleteCard(firebaseKey, uid).then((cardsArray) => showCards(cardsArray));
       }
+    }
+
+    // view a card
+    if (e.target.id.includes('view-card-btn')) {
+      const [, firebaseKey] = e.target.id.split('view-card-btn--');
+      getSingleCard(firebaseKey, uid).then((cardObject) => showCards([cardObject]));
     }
 
     // edits an existing card
