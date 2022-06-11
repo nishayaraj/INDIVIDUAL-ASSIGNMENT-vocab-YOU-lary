@@ -32,6 +32,7 @@ const navBar = () => {
         </button>
         <div
           class="collapse navbar-collapse"
+          style="flex-grow: 0;"
           id="navbarText">
           <ul
             class="navbar-nav me-auto mb-2 mb-lg-0"
@@ -41,6 +42,7 @@ const navBar = () => {
               <a
                 class="nav-link"
                 href="#"
+                style="background-color: #fff;border: 1px solid #ced4da;border-radius: 8px;margin: 0px 10px;"
                 id="all-cards">
                 All Cards
                 <span
@@ -54,15 +56,18 @@ const navBar = () => {
               <a
                 class="nav-link"
                 href="#"
+                style="background-color: #fff;border: 1px solid #ced4da;border-radius: 8px;margin: 0px 10px;"
                 id="create-cards">
                 Create Entry
               </a>
             </li>
             <form
               class="d-flex"
+              style="margin: 0 20px;"
               role="search">
               <input
                 class="form-control me-2"
+                style="margin-right: 4px !important;"
                 type="search"
                 placeholder="Search"
                 aria-label="Search">

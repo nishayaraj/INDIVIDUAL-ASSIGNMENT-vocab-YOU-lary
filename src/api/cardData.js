@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import axios from 'axios';
 import firebaseConfig from './apiKeys';
+import getCurrenTime from '../scripts/helpers/getCurrenTime';
 
 const dbUrl = firebaseConfig.databaseURL;
 
@@ -24,7 +25,9 @@ const getCards = (uid, category) => new Promise((resolve, reject) => {
 
 // FIXME: CREATE Cards
 const createCard = (cardObj) => new Promise((resolve, reject) => {
-  axios.post(`${dbUrl}/vocabulary.json`, cardObj)
+  const currentTime = getCurrenTime();
+
+  axios.post(`${dbUrl}/vocabulary.json`, { ...cardObj, currentTime })
     .then((response) => {
       const payload = { firebaseKey: response.data.name };
       axios.patch(`${dbUrl}/vocabulary/${response.data.name}.json`, payload)
@@ -53,8 +56,10 @@ const deleteCard = (firebaseKey, uid) => new Promise((resolve, reject) => {
 
 // FIXME: UPDATE card
 const updateCard = (cardObj) => new Promise((resolve, reject) => {
+  const currentTime = getCurrenTime();
+
   axios
-    .patch(`${dbUrl}/vocabulary/${cardObj.firebaseKey}.json`, cardObj)
+    .patch(`${dbUrl}/vocabulary/${cardObj.firebaseKey}.json`, { ...cardObj, currentTime })
     .then(() => getCards(cardObj.uid)
       .then((data) => resolve(data)))
     .catch((error) => reject(error));
