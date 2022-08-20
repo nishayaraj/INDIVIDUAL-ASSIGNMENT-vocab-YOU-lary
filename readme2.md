@@ -1,4 +1,4 @@
-# All about Sorting Hat
+# Vocab-you-lary
 
 ## Primary Features
 -This project involves craeting a single page application enabling creation, updation and deleting of vocabulary cards.
